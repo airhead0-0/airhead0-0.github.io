@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="airheadOvO">
+    <meta name="keywords" content="关于小程序的数据劫持代理和事件绑定, airheadOvO">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>airheadOvO</title>
+    <title>关于小程序的数据劫持代理和事件绑定 | airheadOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">关于小程序的数据劫持代理和事件绑定</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-04
+                    2021-06-08
                 </div>
                 
 
@@ -464,7 +464,65 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">title: tags_test</span><br><span class="line">date: 2021.06.04 18:14</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: &quot;tags&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <h1 id="关于小程序的数据劫持代理和事件绑定"><a href="#关于小程序的数据劫持代理和事件绑定" class="headerlink" title="关于小程序的数据劫持代理和事件绑定"></a>关于小程序的数据劫持代理和事件绑定</h1><h4 id="一-什么是数据劫持"><a href="#一-什么是数据劫持" class="headerlink" title="一.什么是数据劫持"></a>一.什么是数据劫持</h4><h5 id="数据劫持，指的是在访问或者修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或者修改返回结果。"><a href="#数据劫持，指的是在访问或者修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或者修改返回结果。" class="headerlink" title="数据劫持，指的是在访问或者修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或者修改返回结果。"></a>数据劫持，指的是在访问或者修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或者修改返回结果。</h5><p>较为典型的有 vue2.0 的 Object.defineProperty() ,和 vue3.0 的 Proxy 对象.</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 模拟 vue 数据绑定</span>
+<span class="token keyword">let</span> data <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    username<span class="token punctuation">:</span> <span class="token string">'jiwang'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">20</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 模拟组件实例</span>
+<span class="token keyword">let</span> _this <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 如何让_this 代理得到 data 中的数据</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 利用 Object.defineProperty(目标对象, 添加的属性 item, &amp;#123;添加的对象&amp;#125;) </span>
+<span class="token comment" spellcheck="true">//首先遍历 data ,得到其中数据</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> item <span class="token keyword">in</span> data<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>data<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>_this<span class="token punctuation">,</span> item<span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// get() 用来获取扩展属性值, 当获取该属性值时调用</span>
+        <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// get() 必须带返回值, 这里是 data 的值 value</span>
+            <span class="token keyword">return</span> data<span class="token punctuation">[</span>item<span class="token punctuation">]</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        <span class="token comment" spellcheck="true">// 打印时, 扩展属性值不会在一开始就加载(...), 需要进一步点击, 此时用到 get()</span>
+        <span class="token comment" spellcheck="true">// set() 用来监视扩展属性, 一修改就会调用</span>
+        <span class="token comment" spellcheck="true">// 注意不能在 set 里面修改当前扩展属性的值, 会死循环qaq (因为一修改就调用, 一直修改一直调用...)</span>
+        <span class="token keyword">set</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'newValue'</span><span class="token punctuation">)</span>
+            data<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> newValue
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 通过 Object.defineProperty 的 get 方法添加的属性值不能直接用 对象.属性 修改, 需要用到 set(). </span>
+_this<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时触发 set()</span>
+</code></pre>
+<h4 id="二-事件分类"><a href="#二-事件分类" class="headerlink" title="二.事件分类"></a>二.事件分类</h4><h5 id="1-冒泡事件-bindtap"><a href="#1-冒泡事件-bindtap" class="headerlink" title="1.冒泡事件(bindtap)"></a>1.冒泡事件(bindtap)</h5><p>​    当一个组件上的事件被触发后, 该事件向父节点传递</p>
+<h5 id="2-非冒泡事件-catchtap"><a href="#2-非冒泡事件-catchtap" class="headerlink" title="2.非冒泡事件(catchtap)"></a>2.非冒泡事件(catchtap)</h5><p>​    当一个组件上的事件被触发后, 该事件不会向父节点传递</p>
+<h5 id="3-事件流的三个阶段"><a href="#3-事件流的三个阶段" class="headerlink" title="3.事件流的三个阶段"></a>3.事件流的三个阶段</h5><p>1.捕获: 从外向内</p>
+<p>2.执行目标</p>
+<p>3.冒泡: 从内向外</p>
+<p> <img src="https://i0.hdslb.com/bfs/album/3f7c2b9f466700c119e2f5546ba03b17d058d280.jpg" alt="Alt text"></p>
+<h4 id="三-小程序初始配置"><a href="#三-小程序初始配置" class="headerlink" title="三.小程序初始配置"></a>三.小程序初始配置</h4><h5 id="1-sitemap-json"><a href="#1-sitemap-json" class="headerlink" title="1. sitemap.json"></a>1. sitemap.json</h5><p>微信现已开放小程序内搜索，开发者可以通过 <code>sitemap.json</code> 配置，或者管理后台页面收录开关来配置其小程序页面是否允许微信索引。</p>
+<p>当开发者允许微信索引时，微信会通过爬虫的形式，为小程序的页面内容建立索引。</p>
+<p>默认设置为全局索引, 也可设置为特定页面索引</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"rules"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token string">"action"</span><span class="token punctuation">:</span> <span class="token string">"allow"</span><span class="token punctuation">,</span>
+  <span class="token string">"page"</span><span class="token punctuation">:</span> <span class="token string">"*"</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">]</span>
+</code></pre>
+<h5 id="2-project-config-json"><a href="#2-project-config-json" class="headerlink" title="2.project.config.json"></a>2.project.config.json</h5><p>配置文件, 不要在文件里乱改, 建议通过 右侧详情里改</p>
+<h5 id="3-utils"><a href="#3-utils" class="headerlink" title="3. utils"></a>3. utils</h5><p>微信自带的封装好的函数, 没多大用</p>
+<h4 id="四-路由跳转"><a href="#四-路由跳转" class="headerlink" title="四.路由跳转"></a>四.路由跳转</h4><h5 id="1-wx-navigateTo-Object-object-常用"><a href="#1-wx-navigateTo-Object-object-常用" class="headerlink" title="1. wx.navigateTo(Object object)  常用"></a>1. wx.navigateTo(Object object)  常用</h5><p>保留当前页面，跳转到应用内的某个页面。但是<strong>不能跳到 tabbar 页面</strong>。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈最多十层。</p>
+<pre class=" language-javascript"><code class="language-javascript">wx<span class="token punctuation">.</span><span class="token function">navigateTo</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      url<span class="token punctuation">:</span> <span class="token string">'/pages/userDetail/userDetail?id='</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>currentTarget<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+</code></pre>
+<h5 id="2-wx-redirectTo-Object-object"><a href="#2-wx-redirectTo-Object-object" class="headerlink" title="2. wx.redirectTo(Object object)"></a>2. wx.redirectTo(Object object)</h5><p><strong>关闭当前页面</strong>，跳转到应用内的某个页面。但是<strong>不允许跳转到 tabbar 页面</strong>, 只能回到主页</p>
+<h5 id="3-wx-reLaunch-Object-object"><a href="#3-wx-reLaunch-Object-object" class="headerlink" title="3. wx.reLaunch(Object object)"></a>3. wx.reLaunch(Object object)</h5><p><strong>关闭所有页面</strong>，打开到应用内的某个页面</p>
+
                 
             </div>
             <hr/>
@@ -490,7 +548,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://airhead0-0.github.io/tags/index.html">http://airhead0-0.github.io/tags/index.html</a>
+                    <a href="http://airhead0-0.github.io/2021/06/08/guan-yu-xiao-cheng-xu-de-shu-ju-jie-chi-dai-li-he-shi-jian-bang-ding/">http://airhead0-0.github.io/2021/06/08/guan-yu-xiao-cheng-xu-de-shu-ju-jie-chi-dai-li-he-shi-jian-bang-ding/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -702,13 +760,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/tags/index.html">
+                <a href="/2021/06/08/guan-yu-xiao-cheng-xu-de-shu-ju-jie-chi-dai-li-he-shi-jian-bang-ding/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="关于小程序的数据劫持代理和事件绑定">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">关于小程序的数据劫持代理和事件绑定</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -719,7 +777,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
                             </span>
                         <span class="publish-author">
                             
@@ -737,16 +795,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/tags/index.html">
+                <a href="/2021/06/03/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -757,7 +815,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-03
                             </span>
                         <span class="publish-author">
                             
@@ -767,7 +825,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
