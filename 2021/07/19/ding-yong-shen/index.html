@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于小程序的数据劫持代理和事件绑定, airheadOvO">
+    <meta name="keywords" content="定用神, airheadOvO">
     <meta name="description" content="miaoshu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于小程序的数据劫持代理和事件绑定 | airheadOvO</title>
+    <title>定用神 | airheadOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于小程序的数据劫持代理和事件绑定</h1>
+                    <h1 class="description center-align post-title">定用神</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                <span class="chip bg-color">微信小程序</span>
+                            <a href="/tags/%E5%85%AD%E7%88%BB/">
+                                <span class="chip bg-color">六爻</span>
                             </a>
                         
                     </div>
@@ -444,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/%E5%91%BD%E7%90%86/" class="post-category">
+                                命理
                             </a>
                         
                     </div>
@@ -457,14 +457,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-08
+                    2021-07-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-15
+                    2021-07-19
                 </div>
                 
 
@@ -488,64 +488,56 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="关于小程序的数据劫持代理和事件绑定"><a href="#关于小程序的数据劫持代理和事件绑定" class="headerlink" title="关于小程序的数据劫持代理和事件绑定"></a>关于小程序的数据劫持代理和事件绑定</h1><h4 id="一-什么是数据劫持"><a href="#一-什么是数据劫持" class="headerlink" title="一.什么是数据劫持"></a>一.什么是数据劫持</h4><h5 id="数据劫持，指的是在访问或者修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或者修改返回结果。"><a href="#数据劫持，指的是在访问或者修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或者修改返回结果。" class="headerlink" title="数据劫持，指的是在访问或者修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或者修改返回结果。"></a>数据劫持，指的是在访问或者修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或者修改返回结果。</h5><p>较为典型的有 vue2.0 的 Object.defineProperty() ,和 vue3.0 的 Proxy 对象.</p>
-<pre class=" language-hljs javascript"><span class="hljs-comment"><code class="language-hljs javascript"><span class="hljs-comment">// 模拟 vue 数据绑定</span>
-<span class="hljs-keyword">let</span> data = &#123;
-    <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;jiwang&#x27;</span>,
-    <span class="hljs-attr">age</span>: <span class="hljs-number">20</span>
-&#125;
-
-<span class="hljs-comment">// 模拟组件实例</span>
-<span class="hljs-keyword">let</span> _this = &#123;
-    <span class="hljs-comment">// 如何让_this 代理得到 data 中的数据</span>
-&#125;
-
-<span class="hljs-comment">// 利用 Object.defineProperty(目标对象, 添加的属性 item, &#123;添加的对象&#125;) </span>
-<span class="hljs-comment">//首先遍历 data ,得到其中数据</span>
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">in</span> data)&#123;
-    <span class="hljs-built_in">console</span>.log(item,data[item]);
-    <span class="hljs-built_in">Object</span>.defineProperty(_this, item, &#123;
-        <span class="hljs-comment">// get() 用来获取扩展属性值, 当获取该属性值时调用</span>
-        <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span>&#123;
-            <span class="hljs-comment">// get() 必须带返回值, 这里是 data 的值 value</span>
-            <span class="hljs-keyword">return</span> data[item]
-        &#125;,
-        <span class="hljs-comment">// 打印时, 扩展属性值不会在一开始就加载(...), 需要进一步点击, 此时用到 get()</span>
-        <span class="hljs-comment">// set() 用来监视扩展属性, 一修改就会调用</span>
-        <span class="hljs-comment">// 注意不能在 set 里面修改当前扩展属性的值, 会死循环qaq (因为一修改就调用, 一直修改一直调用...)</span>
-        <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params">newValue</span>)</span>&#123;
-            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;newValue&#x27;</span>)
-            data[item] = newValue
-        &#125;
-    &#125;)
-&#125;
-
-<span class="hljs-comment">// 通过 Object.defineProperty 的 get 方法添加的属性值不能直接用 对象.属性 修改, 需要用到 set(). </span>
-_this.age = <span class="hljs-number">30</span>; <span class="hljs-comment">// 此时触发 set()</span></code></pre>
-
-<h4 id="二-事件分类"><a href="#二-事件分类" class="headerlink" title="二.事件分类"></a>二.事件分类</h4><h5 id="1-冒泡事件-bindtap"><a href="#1-冒泡事件-bindtap" class="headerlink" title="1.冒泡事件(bindtap)"></a>1.冒泡事件(bindtap)</h5><p>​    当一个组件上的事件被触发后, 该事件向父节点传递</p>
-<h5 id="2-非冒泡事件-catchtap"><a href="#2-非冒泡事件-catchtap" class="headerlink" title="2.非冒泡事件(catchtap)"></a>2.非冒泡事件(catchtap)</h5><p>​    当一个组件上的事件被触发后, 该事件不会向父节点传递</p>
-<h5 id="3-事件流的三个阶段"><a href="#3-事件流的三个阶段" class="headerlink" title="3.事件流的三个阶段"></a>3.事件流的三个阶段</h5><p>1.捕获: 从外向内</p>
-<p>2.执行目标</p>
-<p>3.冒泡: 从内向外</p>
-<p><img src="D:\web\myBlog\static\img\事件流.jpg"></p>
-<h4 id="三-小程序初始配置"><a href="#三-小程序初始配置" class="headerlink" title="三.小程序初始配置"></a>三.小程序初始配置</h4><h5 id="1-sitemap-json"><a href="#1-sitemap-json" class="headerlink" title="1. sitemap.json"></a>1. sitemap.json</h5><p>微信现已开放小程序内搜索，开发者可以通过 <code>sitemap.json</code> 配置，或者管理后台页面收录开关来配置其小程序页面是否允许微信索引。</p>
-<p>当开发者允许微信索引时，微信会通过爬虫的形式，为小程序的页面内容建立索引。</p>
-<p>默认设置为全局索引, 也可设置为特定页面索引</p>
-<pre class=" language-hljs javascript"><span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-string">"rules"</span>: [&#123;
-  <span class="hljs-string">"action"</span>: <span class="hljs-string">"allow"</span>,
-  <span class="hljs-string">"page"</span>: <span class="hljs-string">"*"</span>
-  &#125;]</code></pre>
-
-<h5 id="2-project-config-json"><a href="#2-project-config-json" class="headerlink" title="2.project.config.json"></a>2.project.config.json</h5><p>配置文件, 不要在文件里乱改, 建议通过 右侧详情里改</p>
-<h5 id="3-utils"><a href="#3-utils" class="headerlink" title="3. utils"></a>3. utils</h5><p>微信自带的封装好的函数, 没多大用</p>
-<h4 id="四-路由跳转"><a href="#四-路由跳转" class="headerlink" title="四.路由跳转"></a>四.路由跳转</h4><h5 id="1-wx-navigateTo-Object-object-常用"><a href="#1-wx-navigateTo-Object-object-常用" class="headerlink" title="1. wx.navigateTo(Object object)  常用"></a>1. wx.navigateTo(Object object)  常用</h5><p>保留当前页面，跳转到应用内的某个页面。但是<strong>不能跳到 tabbar 页面</strong>。使用 wx.navigateBack 可以返回到原页面。小程序中页面栈最多十层。</p>
-<pre class=" language-hljs javascript"><code class="language-hljs javascript">wx.navigateTo(&#123;
-      <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;/pages/userDetail/userDetail?id=&#x27;</span> + e.currentTarget.dataset.id,
-    &#125;)</code></pre>
-
-<h5 id="2-wx-redirectTo-Object-object"><a href="#2-wx-redirectTo-Object-object" class="headerlink" title="2. wx.redirectTo(Object object)"></a>2. wx.redirectTo(Object object)</h5><p><strong>关闭当前页面</strong>，跳转到应用内的某个页面。但是<strong>不允许跳转到 tabbar 页面</strong>, 只能回到主页</p>
-<h5 id="3-wx-reLaunch-Object-object"><a href="#3-wx-reLaunch-Object-object" class="headerlink" title="3. wx.reLaunch(Object object)"></a>3. wx.reLaunch(Object object)</h5><p><strong>关闭所有页面</strong>，打开到应用内的某个页面</p>
+                <h2 id="一-定用神"><a href="#一-定用神" class="headerlink" title="一.定用神"></a>一.定用神</h2><p>​    正确选取代表用神的六亲：首先，应学会根据<strong>所占问的不同事情</strong>，从卦中寻找相</p>
+<p>关的爻作为用神，用以判断事情的吉凶趋势。所谓找用神，就是明白问卦人心中</p>
+<p>的真实疑惑与目的之后，在卦中寻找确定代表这个人事目的之爻，作为预测分析</p>
+<p>的<strong>核心对象</strong>。理论上用神的大致分类如下：</p>
+<p>父母爻：生助我者父母。即一切庇护我身之人与物，以卦中父母爻为用神。 </p>
+<p>1、 父母、伯、叔、姑、姨、义父母、师父，心目中的<strong>长辈、老人</strong>。 </p>
+<p>2、 占老师、师傅、公司老板、大股东、靠山、仆占主人。 </p>
+<p>3、 占城市、土地、房屋、车船、衣服、雨具、布匹、电话、床柜、物件。 </p>
+<p>4、 占<strong>考试</strong>、资格、文书、契约、投稿、票据、证件、合同、帐目。 </p>
+<p>5、 占学校、单位、工程、项目、投标、事件；占天气则指下雨。</p>
+<p>官鬼爻：<strong>约制我者官鬼。即一切拘束与约制我身者，以卦中官鬼爻为用神</strong>。 </p>
+<p>1、占丈夫、未婚夫、情夫、男友、上司、领导、祈求之贵人、男人。 </p>
+<p>2、占功名、事业、荣誉、成就、工作、职位、学科、专业、官府、公证、诉讼。 </p>
+<p>3、占鬼神、贼盗、邪崇、敌国、敌对方。占天气则指乌云、雷电；占病代表疾</p>
+<p>病。</p>
+<p>4、心态之占：代表忧虑、担心、祸患、虚假、不利、不如愿、厌恶、冷门</p>
+<p>兄弟爻：<strong>同类者兄弟，即一切与我同类者，以卦中兄弟爻为用神</strong>。 </p>
+<p>1、 占兄弟、姐妹、知己、同辈同性亲属、结拜兄弟。 </p>
+<p>2、 占深交同事、同学、同门、同僚、朋友。占天气则指风。</p>
+<p>兄弟属自身的同类元素，见我则欺，见财则夺；兄弟同时也是被官鬼欺压的角色。</p>
+<p>所以占财物寓意破财、占谋事寓意阻碍、占感情寓意竞争、占事业寓意受制、占</p>
+<p>仕途寓意被裁。</p>
+<p>妻财爻：占妻财类，即一切<strong>归属我所占有或控制者</strong>，以卦中妻财爻为用神。 </p>
+<p>1、 占<strong>妻妾</strong>、情妇、女友、婢女、仆役、员工、女人。 </p>
+<p>2、 占求财、货财、珠宝、买卖、生意、激进型投资；占天气则指晴朗多云。 </p>
+<p>3、所有套现行为：回收资本、卖房子、出租房子、卖股票、股权出让。</p>
+<p>子孙爻：占<strong>子孙</strong>类，以卦中子孙爻为用神。 </p>
+<p>1、 占儿孙、占子女、女婿、侄甥、门生、徒弟、下属、晚辈、孩子。 </p>
+<p>2、 占忠臣、良将、医生、药物、僧道、兵卒、警察、神佛。 </p>
+<p>3、 占娱乐、游玩、渡假、假期、防范、辞职、保守型投资。 </p>
+<p>4、 占<strong>动物</strong>、六畜、禽兽；占天气则指阳光灿烂、万里晴空。 </p>
+<p>5、 心态之占：代表放心、平安、解忧、喜好、如愿、真实、无碍、热门。</p>
+<p>子孙为福德之神、制鬼之神。诸事见之为喜，唯独占仕途功名，寓意不利与辞退。</p>
+<p>世爻：凡占与自身祸福安危密切相关的，以世爻为用神。如占疾病、占寿元、占对自身利弊、占一般性质的出行等等</p>
+<p>应爻：凡不属上述具体对象范围的他人他事，统以卦中应爻为用神。 </p>
+<p>1、占他人、<strong>陌生人</strong>、没交往的同僚、对方、医占病人、一般友人。 </p>
+<p>2、占竞赛角逐、两者发展、相互合作、相互关系、一般事件。 </p>
+<p>3、占与某特定对象相关的事宜，应爻可以作为某特定对象的身份信息。</p>
+<p>常用</p>
+<p>(1)占卜考试、投标、消息、拿工程、占父母亲、占爷爷奶奶等，都用父母爻为用神。</p>
+<p>(2)女测老公和男友、占工作调动提拔、占官司、疾病等用官鬼爻为用神。</p>
+<p>(3)占朋友关系、兄妹情况、竞争者等用兄弟爻为用神。</p>
+<p>(4)、占财运、投资、男测感情等用妻财爻为用神。</p>
+<p>(5)、占父母占孩子吉凶、什么时候怀孕、什么时候有孩子、孩子什么时候归家等，另外一个就是占找狗找猫等宠物用子孙爻为用神。</p>
+<p>*定用神 用神多现 / 不现如何选取用神</p>
+<p>1.优先考虑世爻和应爻位</p>
+<p>世爻多代表自己，应爻多代表所测之事</p>
+<p>2.取动爻（包含变爻）动必有因</p>
+<p>3.有异取异（月破，日破，旬空）</p>
+<p>4.取伏神</p>
 
                 
             </div>
@@ -572,7 +564,7 @@ _this.age = <span class="hljs-number">30</span>; <span class="hljs-comment">// �
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://airhead0-0.github.io/2021/06/08/guan-yu-xiao-cheng-xu-de-shu-ju-jie-chi-dai-li-he-shi-jian-bang-ding/">http://airhead0-0.github.io/2021/06/08/guan-yu-xiao-cheng-xu-de-shu-ju-jie-chi-dai-li-he-shi-jian-bang-ding/</a>
+                    <a href="http://airhead0-0.github.io/2021/07/19/ding-yong-shen/">http://airhead0-0.github.io/2021/07/19/ding-yong-shen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -610,8 +602,8 @@ _this.age = <span class="hljs-number">30</span>; <span class="hljs-comment">// �
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                    <span class="chip bg-color">微信小程序</span>
+                                <a href="/tags/%E5%85%AD%E7%88%BB/">
+                                    <span class="chip bg-color">六爻</span>
                                 </a>
                             
                         </div>
@@ -782,7 +774,7 @@ _this.age = <span class="hljs-number">30</span>; <span class="hljs-comment">// �
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-06-08T22-13-36',
+        id: '2021-07-19T20-11-37',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -810,9 +802,60 @@ _this.age = <span class="hljs-number">30</span>; <span class="hljs-comment">// �
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/07/19/ding-yong-shen/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="定用神">
+                        
+                        <span class="card-title">定用神</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%91%BD%E7%90%86/" class="post-category">
+                                    命理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%AD%E7%88%BB/">
+                        <span class="chip bg-color">六爻</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/06/15/xiao-cheng-xu-deng-lu-liu-cheng-1/">
                     <div class="card-image">
@@ -830,57 +873,8 @@ _this.age = <span class="hljs-number">30</span>; <span class="hljs-comment">// �
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-15
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <span class="chip bg-color">微信小程序</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/06/08/guan-yu-xiao-cheng-xu-de-shu-ju-jie-chi-dai-li-he-shi-jian-bang-ding/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="关于小程序的数据劫持代理和事件绑定">
-                        
-                        <span class="card-title">关于小程序的数据劫持代理和事件绑定</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-15
                             </span>
                         <span class="publish-author">
                             
@@ -894,7 +888,6 @@ _this.age = <span class="hljs-number">30</span>; <span class="hljs-comment">// �
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
