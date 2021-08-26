@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="小程序登录流程, airheadOvO">
+    <meta name="keywords" content="deathComeTrue, airheadOvO">
     <meta name="description" content="miaoshu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>小程序登录流程 | airheadOvO</title>
+    <title>deathComeTrue | airheadOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">小程序登录流程</h1>
+                    <h1 class="description center-align post-title">deathComeTrue</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                <span class="chip bg-color">微信小程序</span>
+                            <a href="/tags/%E7%9C%9F%E4%BA%BA%E4%BA%A4%E4%BA%92%E6%B8%B8%E6%88%8F/">
+                                <span class="chip bg-color">真人交互游戏</span>
                             </a>
                         
                     </div>
@@ -444,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/%E6%B8%B8%E6%88%8F/" class="post-category">
+                                游戏
                             </a>
                         
                     </div>
@@ -457,14 +457,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-15
+                    2021-08-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-15
+                    2021-08-26
                 </div>
                 
 
@@ -488,142 +488,12 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="小程序登录流程"><a href="#小程序登录流程" class="headerlink" title="小程序登录流程"></a>小程序登录流程</h2><h3 id="1-通过后端接口实现登录"><a href="#1-通过后端接口实现登录" class="headerlink" title="1) 通过后端接口实现登录"></a>1) 通过后端接口实现登录</h3><h4 id="一-收集表单数据"><a href="#一-收集表单数据" class="headerlink" title="一.收集表单数据"></a>一.收集表单数据</h4><p>类似v-model 实时收集填写数据</p>
-<p>bindinput =&gt; 实时获取value值</p>
-<pre class=" language-hljs javascript"><span class="hljs-comment"><code class="language-hljs javascript"><span class="hljs-comment">// 用id 传参</span>
-<span class="hljs-function"><span class="hljs-title">handleInput</span>(<span class="hljs-params">e</span>)</span>&#123;
-    <span class="hljs-keyword">let</span> type = e.currentTarget.id;
-    <span class="hljs-built_in">console</span>.log(e.detail.value, type);
-    <span class="hljs-built_in">this</span>.setData(&#123;
-      <span class="hljs-comment">// 操控变量需要用到中括号</span>
-      [type]: e.detail.value
-    &#125;)
-  &#125;</code></pre>
-
-<pre class=" language-hljs java"><span class="hljs-comment"><code class="language-hljs java"><span class="hljs-comment">// 用id 传参</span>
-handleInput(e)&#123;
-    let type = e.currentTarget.id;
-    console.log(e.detail.value, type);
-    <span class="hljs-keyword">this</span>.setData(&#123;
-      <span class="hljs-comment">// 操控变量需要用到中括号</span>
-      [type]: e.detail.value
-    &#125;)
-  &#125;</code></pre>
-
-
-
-<h4 id="二-前端验证"><a href="#二-前端验证" class="headerlink" title="二.前端验证"></a>二.前端验证</h4><ol>
-<li><p>验证用户输入信息(手机号长度,格式, 密码长度)是否合理,(正则表达式)</p>
-</li>
-<li><p>前端验证不通过就直接提示用户, 不需要给后端发送请求</p>
-</li>
-<li><p>前端验证通过, 携带账号密码, 发请求到后端</p>
-<pre class=" language-hljs javascript"><span class="hljs-keyword">let</span> &#123; phone, pwd &#125; = <span class="hljs-built_in"><code class="language-hljs javascript"><span class="hljs-keyword">let</span> &#123; phone, pwd &#125; = <span class="hljs-built_in">this</span>.data
-    <span class="hljs-keyword">if</span> (!phone)&#123;
-      <span class="hljs-comment">// 手机号为空</span>
-      wx.showToast(&#123;
-        <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;none&#x27;</span>,
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;请输入手机号&#x27;</span>,
-      &#125;)
-      <span class="hljs-keyword">return</span>;
-    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( !pwd )&#123;
-      wx.showToast(&#123;
-        <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;none&#x27;</span>,
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;请输入密码&#x27;</span>,
-      &#125;)
-      <span class="hljs-keyword">return</span>;
-    &#125;
-    <span class="hljs-comment">// 定义正则表达式</span>
-    <span class="hljs-keyword">let</span> phoneReg = <span class="hljs-regexp">/^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$/</span>
-    <span class="hljs-comment">// let phoneReg = /^1(3|4|5|6|7|8|9)\d&#123;9&#125;/</span>
-    <span class="hljs-keyword">if</span> ( !phoneReg.test(phone) )&#123;
-      wx.showToast(&#123;
-        <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;none&#x27;</span>,
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;手机号格式不正确&#x27;</span>,
-      &#125;)
-      <span class="hljs-keyword">return</span>;
-    &#125;</code></pre></li>
-</ol>
-<h4 id="三-后端验证"><a href="#三-后端验证" class="headerlink" title="三. 后端验证"></a>三. 后端验证</h4><ol>
-<li>验证用户是否存在</li>
-<li>不存在 =&gt; 返回, 提示用户你不存在</li>
-<li>存在 =&gt; 验证密码是否正确</li>
-<li>不正确 =&gt; 返回前端密码不正确</li>
-<li>正确 =&gt; 返回携带用户信息的信息, 提示用户登录成功, 并把信息保存至本地(注意转化成 json 格式, 读取时也要转化)</li>
-</ol>
-<pre class=" language-hljs javascript"><span class="hljs-keyword">let</span> res = <span class="hljs-keyword">await</span> requset(<span class="hljs-string"><code class="language-hljs javascript"><span class="hljs-keyword">let</span> res = <span class="hljs-keyword">await</span> requset(<span class="hljs-string">&#x27;/login/cellphone&#x27;</span>, &#123; phone, password &#125;)
-<span class="hljs-keyword">if</span> ( res.code === <span class="hljs-number">200</span> )&#123;
-      wx.showToast(&#123;
-        <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;none&#x27;</span>,
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;登录成功&#x27;</span>,
-      &#125;)
-      <span class="hljs-comment">// 将用户信息存储至本地</span>
-      wx.setStorageSync(<span class="hljs-string">&#x27;userInfo&#x27;</span>,
-                        <span class="hljs-built_in">JSON</span>.stringify(res.profile) )
-      
-      wx.reLaunch(&#123;
-        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;/pages/my/my&#x27;</span>,
-      &#125;)
-    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( res.code === <span class="hljs-number">400</span> )&#123;
-      wx.showToast(&#123;
-        <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;error&#x27;</span>,
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;手机号错误&#x27;</span>,
-      &#125;)
-    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( res.code === <span class="hljs-number">502</span> )&#123;
-      wx.showToast(&#123;
-        <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;error&#x27;</span>,
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;密码错误&#x27;</span>,
-      &#125;)
-    &#125;<span class="hljs-keyword">else</span>&#123;
-      wx.showToast(&#123;
-        <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;error&#x27;</span>,
-        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;登录失败,请重新登录&#x27;</span>,
-      &#125;)
-    &#125;</code></pre>
-
-
-
-<h3 id="2-通过-wx-自带-api-进行登录-绑定微信信息"><a href="#2-通过-wx-自带-api-进行登录-绑定微信信息" class="headerlink" title="2)通过 wx 自带 api 进行登录, 绑定微信信息"></a>2)通过 wx 自带 api 进行登录, 绑定微信信息</h3><h4 id="一-页面加载时查询本地登录信息"><a href="#一-页面加载时查询本地登录信息" class="headerlink" title="一. 页面加载时查询本地登录信息"></a>一. 页面加载时查询本地登录信息</h4><ol>
-<li><p>无, 显示登录界面</p>
-</li>
-<li><p>有, 调取本地信息</p>
-<pre class=" language-hljs javascript"><span class="hljs-comment"><code class="language-hljs javascript"><span class="hljs-comment">// 从本地中取出缓存</span>
-    <span class="hljs-keyword">let</span> user = wx.getStorageSync(<span class="hljs-string">&#x27;user&#x27;</span>)
-    <span class="hljs-built_in">this</span>.setData(&#123;
-      <span class="hljs-attr">userInfo</span>: user
-    &#125;)</code></pre></li>
-</ol>
-<h4 id="二-登录"><a href="#二-登录" class="headerlink" title="二. 登录"></a>二. 登录</h4><ol>
-<li>调用 wx 自带 api ,  wx.getUserProfile, 成功回调把信息缓存至本地(这里得信息是微信的, 微信昵称头像等等)</li>
-</ol>
-<pre class=" language-hljs javascript"><span class="hljs-function"><span class="hljs-title">login</span>(<span class="hljs-params"><code class="language-hljs javascript"><span class="hljs-function"><span class="hljs-title">login</span>(<span class="hljs-params"></span>)</span>&#123;
-   wx.getUserProfile(&#123;
-     <span class="hljs-attr">desc</span>: <span class="hljs-string">&#x27;用于完善信息&#x27;</span>,
-     <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-params">res</span> =></span> &#123;
-       <span class="hljs-keyword">let</span> user = res.userInfo
-       <span class="hljs-comment">// 把用户登录信息缓存到本地</span>
-       wx.setStorageSync(<span class="hljs-string">&#x27;user&#x27;</span>, user)
-       <span class="hljs-built_in">console</span>.log(res);
-       <span class="hljs-built_in">this</span>.setData(&#123;
-         <span class="hljs-attr">userInfo</span>: user
-       &#125;)
-     &#125;,
-     <span class="hljs-attr">fail</span>: <span class="hljs-function"><span class="hljs-params">res</span> =></span> &#123;
-       <span class="hljs-built_in">console</span>.log(res);
-     &#125;
-   &#125;)
- &#125;</code></pre>
-
-
-
-<h4 id="三-登出"><a href="#三-登出" class="headerlink" title="三.登出"></a>三.登出</h4><p>把本地存储的登录信息清空</p>
-<pre class=" language-hljs javascript"><span class="hljs-function"><span class="hljs-title">loginOut</span>(<span class="hljs-params"><code class="language-hljs javascript"><span class="hljs-function"><span class="hljs-title">loginOut</span>(<span class="hljs-params"></span>)</span>&#123;
-    <span class="hljs-built_in">this</span>.setData(&#123;
-      <span class="hljs-attr">userInfo</span>: <span class="hljs-string">&#x27;&#x27;</span>,
-    &#125;)
-    wx.setStorageSync(<span class="hljs-string">&#x27;user&#x27;</span>,<span class="hljs-string">&#x27;&#x27;</span>)
-  &#125;</code></pre>
-
+                <p>​    时隔两个月终于玩到了这个游戏</p>
+<p>终结降临是我六月份看到别某视频博主在玩, 就去玩了demo, 想玩的时候他没有打折,五十多, 又错过了夏促, 今天晚上随便逛逛steam, 发现又在打折了, 好吧入手了. 游戏很短, 一周目两小时差点. 一场电影的时长, 一张电影票的价格</p>
+<p>![](C:\Users\86131\Desktop\death come true.png)</p>
+<p>先说说个人想法, 如果是基于34块钱的价格, 这个游戏是值得, 简单的推理, 短小的流程, 平淡的剧情, 一切都在意料之中的发展, 两杯奶茶的价格还能要什么自行车呢. 但是听说它之前卖100多, 这个价格可能就不会被广大玩家买账了, 尤其是在盗版游戏市场猖狂, 单机游戏生存困难的环境下, 100的票价就不在我的考虑范围内了, 除非是演员的粉丝, 或者真人交互游戏爱好者, 否则不推荐原价购入这款游戏. 但是不得不说, 他还是有优点在的 ,听说这里的演员都是有电视剧拍摄经验的正规演员, 但是我并不了解任何一个. 主角演技在线, 代入感很强, 场景, 音乐方面都让人深入其境, 前期营造的悬疑氛围浓重, 全是铺垫, 那个”黑客”第一次出场时, 确实吓到我了. 通关之后, 并没有痛快淋漓的感觉, 甚至想退款. </p>
+<p>再说剧情玩法方面, 虽加入了手柄模式, 但是着实鸡肋, 不如键盘操作直接. 也是一个类re0的游戏设定, 男主每死后都会重生在酒店的床上, 他的游戏存档被重置, 每一次都要重新开始, 重新决定自己下一步的行动, 拿手机? 躲在衣柜? 救女主? 但是与re0不同的是, 男主忘记了之前的记忆(其实是被黑客抹去了记忆), 他一出生就发现自己是连环杀人案的凶手, 正在逃亡, 而浴室里的浴缸里躺着一个女人, 恰好是来抓他的便衣警察, 也就是女主. 前期制造了各种悬念, 各种铺垫, 在剧情的推进下, 悬念被一一解答, 有了豁然开朗的感觉, 不过令人失望的事, 剧情就是在我想象的道路上发展下去了, 平稳又没有一丝反转, 令人直呼 就这就这就这就这. 在对剧情的最后的反转抱有一丝丝希望, 而片尾曲就这么突然的来了,  随着剧情的戛然而止, 我整个人也充满了疑惑, 难道这就结束了吗? 是的,  结束了. 无论是选择回到现实世界还是留在虚拟世界, 结局都是这么的中规中矩. </p>
+<p>总之, 当场电影看是很好的, 单线程的剧情, 选错即死, 适合没玩过这类游戏的小白玩</p>
 
                 
             </div>
@@ -650,7 +520,7 @@ handleInput(e)&#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://airhead0-0.github.io/2021/06/15/xiao-cheng-xu-deng-lu-liu-cheng-1/">http://airhead0-0.github.io/2021/06/15/xiao-cheng-xu-deng-lu-liu-cheng-1/</a>
+                    <a href="http://airhead0-0.github.io/2021/08/26/deathcometrue/">http://airhead0-0.github.io/2021/08/26/deathcometrue/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -688,8 +558,8 @@ handleInput(e)&#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                    <span class="chip bg-color">微信小程序</span>
+                                <a href="/tags/%E7%9C%9F%E4%BA%BA%E4%BA%A4%E4%BA%92%E6%B8%B8%E6%88%8F/">
+                                    <span class="chip bg-color">真人交互游戏</span>
                                 </a>
                             
                         </div>
@@ -860,7 +730,7 @@ handleInput(e)&#123;
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-06-15T15-27-23',
+        id: '2021-08-26T11-21-04',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -888,9 +758,60 @@ handleInput(e)&#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/08/26/deathcometrue/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="deathComeTrue">
+                        
+                        <span class="card-title">deathComeTrue</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B8%B8%E6%88%8F/" class="post-category">
+                                    游戏
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%9C%9F%E4%BA%BA%E4%BA%A4%E4%BA%92%E6%B8%B8%E6%88%8F/">
+                        <span class="chip bg-color">真人交互游戏</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/07/19/ding-yong-shen/">
                     <div class="card-image">
@@ -908,9 +829,9 @@ handleInput(e)&#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -928,55 +849,6 @@ handleInput(e)&#123;
                     
                     <a href="/tags/%E5%85%AD%E7%88%BB/">
                         <span class="chip bg-color">六爻</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/06/08/guan-yu-xiao-cheng-xu-de-shu-ju-jie-chi-dai-li-he-shi-jian-bang-ding/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="关于小程序的数据劫持代理和事件绑定">
-                        
-                        <span class="card-title">关于小程序的数据劫持代理和事件绑定</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                        <span class="chip bg-color">微信小程序</span>
                     </a>
                     
                 </div>
